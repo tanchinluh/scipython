@@ -1,0 +1,76 @@
+//
+// scipython ( http://forge.scilab.org/index.php/p/pims ) - This file is a part of scipython
+// Copyright (C) 2017 - Scilab Enterprises
+//
+// This file must be used under the terms of the CeCILL.
+// This source file is licensed as described in the file COPYING, which
+// you should have received as part of this distribution.  The terms
+// are also available at
+// http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
+//
+
+function scipythonlib = startscipython()
+  mprintf("Start scipython\n");
+
+  if isdef("scipythonlib") then
+    warning("scipython library is already loaded");
+    return;
+  end
+
+  scipythonlib = [];
+
+  mode(-1);
+  lines(0);
+
+  etc_tlbx = get_absolute_file_path('scipython.start');
+  etc_tlbx  = getshortpathname(etc_tlbx);
+  root_tlbx = strncpy( etc_tlbx, length(etc_tlbx)-length("\etc\") );
+
+// load macros
+  mprintf("\tLoad macros\n");
+  pathmacros = fullfile(root_tlbx, "macros");
+  scipythonlib = lib(pathmacros);
+
+  ilib_verbose(0);
+
+//// load thirdparties
+//  mprintf("\tLoad thirdparties\n");
+//
+//  [pythonExternInstall, pythonBinPath, pythonLibPath] = checkPython();
+//  link(pythonLibPath);
+//
+//// load gateways
+//  mprintf("\tLoad gateways\n");
+//
+//  link(root_tlbx + "/src/cpp/libpims_cpp" + getdynlibext());
+//  exec(pathconvert(root_tlbx + "/sci_gateway/loader_gateway.sce", %F));
+
+// Pass the argument by reference rather than copy
+  v = getversion("scilab");
+  if v(1) >= 6 then
+      intppty("pyDeff", "remove");
+  else
+      intppty(floor(funptr('pyDeff') / 1000));
+  end
+
+// Add help chapter
+  if or(getscilabmode() == ["NW";"STD"]) then
+    mprintf("\tLoad help\n");
+    path_addchapter = pathconvert(root_tlbx + "/jar");
+    if ( isdir(path_addchapter) <> [] ) then
+      add_help_chapter("scipython", path_addchapter, %F);
+    end
+  end
+
+// Load demos
+  if or(getscilabmode() == ["NW";"STD"]) then
+    mprintf("\tLoad demos\n");
+    pathdemos = pathconvert(root_tlbx+"/demos/pims.dem.gateway.sce",%F,%T);
+    //add_demo("scipython",pathdemos);
+  end
+endfunction
+
+// call startscipython function
+scipythonlib = startscipython();
+// clear startscipython
+clear startscipython;

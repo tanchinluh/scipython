@@ -1,0 +1,29 @@
+; macros
+macros/*.bin
+macros/lib
+macros/names
+
+; generated scripts
+*/cleaner*.sce
+*/loader*.sce
+cleaner*.sce
+loader*.sce
+unloader*.sce
+
+; help
+jar
+help/*/master_help.xml
+help/*/scilab_*_help/
+
+; Linux generated files
+libgw*.c
+
+; Windows generated files
+*.bak
+*.mak
+*gw_pims_c.*
+libpims_cpp.*
+Release/
+Debug/
+
+

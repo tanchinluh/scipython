@@ -1,0 +1,5 @@
+#!/home/simon/Dev/python-2.7.13_build/bin/python2.7
+
+from idlelib.PyShell import main
+if __name__ == '__main__':
+    main()

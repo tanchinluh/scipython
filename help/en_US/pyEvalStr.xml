@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+* scipython ( http://forge.scilab.org/index.php/p/pims ) - This file is part of scipython
+* Copyright (C) 2012 - Scilab Enterprises - Calixte DENIZET
+*
+* This file must be used under the terms of the CeCILL.
+* This source file is licensed as described in the file COPYING, which
+* you should have received as part of this distribution.  The terms
+* are also available at
+* http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
+*
+-->
+<refentry xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svg="http://www.w3.org/2000/svg" xmlns:ns5="http://www.w3.org/1999/xhtml" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:db="http://docbook.org/ns/docbook" version="5.0-subset Scilab" xml:id="pyEvalStr" xml:lang="en">
+  <refnamediv>
+    <refname>pyEvalStr</refname>
+    <refpurpose>Evaluate code in Python environment</refpurpose>
+  </refnamediv>
+  <refsynopsisdiv>
+    <title>Calling Sequence</title>
+    <synopsis>
+      [output =] pyEvalStr(code [, catchOuput])
+    </synopsis>
+  </refsynopsisdiv>
+  <refsection>
+    <title>Arguments</title>
+    <variablelist>
+      <varlistentry>
+        <term>code</term>
+        <listitem>
+          <para>A row or a column of strings.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>catchOutput</term>
+        <listitem>
+          <para>A boolean.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>output</term>
+        <listitem>
+          <para>A column of strings.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </refsection>
+  <refsection>
+    <title>Description</title>
+    <para>Evaluate code in Python environment. If catchOuput is set to true (by default it is set to false), then all the Python output is redirect in a string returned as output.</para>
+  </refsection>
+  <refsection>
+    <title>Examples</title>
+    <programlisting role="example"><![CDATA[
+    main = pyMain();
+    main.a = 1234
+    
+    // the output is print in the console
+    pyEvalStr("print a * 2");
+    
+    // now it is printed in a string
+    ret = pyEvalStr("print a * 3", %t);
+    ret
+   
+    pyRemove main
+    ]]></programlisting>
+  </refsection>
+  <refsection>
+    <title>History</title>
+    <revhistory>
+      <revision>
+        <revnumber>5.4.0</revnumber>
+        <revremark>Python module.</revremark>
+      </revision>
+    </revhistory>
+  </refsection>
+</refentry>

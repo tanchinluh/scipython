@@ -1,0 +1,10 @@
+scipython is an interface to Python from Scilab.
+It allows to call and manipulate almost any Python function, object, or data from the Scilab interpreter.
+
+pyImport math;
+a = math.sqrt(16);
+
+scipython embeds Python 2.7 with numpy, and uses it if no other installation of Python is detected on the user's system.
+
+The [tutorial](http://forge.scilab.org/index.php/p/pims/page/Tutorial) explains how to use scipython.
+

@@ -1,0 +1,14 @@
+Toolbox: scipython
+Title: Scilab Python Toolbox
+Summary: Interface to Python from Scilab
+Version: 1.0
+Author: Simon Marchetto (simon.marchetto@scilab-enterprises.com) 
+Maintainer: Simon Marchetto (simon.marchetto@scilab-enterprises.com)
+Category: Scilab development
+Entity: Scilab Enterprises
+WebSite: http://forge.scilab.org/index.php/p/pims/
+License: CECILL
+ScilabVersion: >= 5.5
+Depends: 
+Date: 2017-06-21
+
