@@ -1,3 +1,5 @@
+This version is a fork from http://forge.scilab.org/index.php/p/pims/source/tree/master/
+
 scipython is an interface to Python from Scilab.
 It allows to call and manipulate almost any Python function, object, or data from the Scilab interpreter.
 
