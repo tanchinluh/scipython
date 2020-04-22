@@ -33,17 +33,17 @@ function scipythonlib = startscipython()
 
   ilib_verbose(0);
 
-//// load thirdparties
-//  mprintf("\tLoad thirdparties\n");
-//
-//  [pythonExternInstall, pythonBinPath, pythonLibPath] = checkPython();
-//  link(pythonLibPath);
-//
-//// load gateways
-//  mprintf("\tLoad gateways\n");
-//
-//  link(root_tlbx + "/src/cpp/libpims_cpp" + getdynlibext());
-//  exec(pathconvert(root_tlbx + "/sci_gateway/loader_gateway.sce", %F));
+// load thirdparties
+  mprintf("\tLoad thirdparties\n");
+
+  [pythonExternInstall, pythonBinPath, pythonLibPath] = checkPython();
+  link(pythonLibPath);
+
+// load gateways
+  mprintf("\tLoad gateways\n");
+
+  link(root_tlbx + "/src/cpp/libpims_cpp" + getdynlibext());
+  exec(pathconvert(root_tlbx + "/sci_gateway/loader_gateway.sce", %F));
 
 // Pass the argument by reference rather than copy
   v = getversion("scilab");

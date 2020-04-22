@@ -20,7 +20,7 @@ function build_cpp()
     thirdPartyPath = fullfile(thirdPartyPath, os);
 
     CFLAGS = CFLAGS + " " + ilib_include_flag(fullfile(thirdPartyPath, "include"));
-pause
+
     if os == "Windows" then
         src_cpp = ls("*.cpp");
 
@@ -28,8 +28,9 @@ pause
         CFLAGS = CFLAGS + " " + ilib_include_flag(fullfile(thirdPartyPath, "Lib/site-packages/numpy/core/include"));
         CFLAGS = CFLAGS + " -DPIMS_EXPORTS";
 
-        LDFLAGS = fullfile(SCI, "bin/external_objects.lib");
-        LDFLAGS = LDFLAGS + " " + fullfile(thirdPartyPath, "libs", "python27.lib");
+        LDFLAGS = """" + fullfile(SCI, "/bin/external_objects.lib") +  """";
+        LDFLAGS = LDFLAGS + " " +  """" + fullfile(thirdPartyPath, "libs", "python27.lib")+  """";
+
     elseif os == "Linux" then
         src_cpp = ls(cppPath + "/*.cpp");
 

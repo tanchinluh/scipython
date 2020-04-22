@@ -43,15 +43,17 @@ end
 // =============================================================================
 
 tbx_builder_macros(toolbox_dir);
-//tbx_builder_src(toolbox_dir);
-//tbx_builder_gateway(toolbox_dir);
+tbx_builder_src(toolbox_dir);
+tbx_builder_gateway(toolbox_dir);
 
 if (getscilabmode() == 'STD') | (getscilabmode() == 'NW') then
   tbx_builder_help(toolbox_dir);
 end
 
-tbx_build_loader(TOOLBOX_NAME, toolbox_dir);
-tbx_build_cleaner(TOOLBOX_NAME, toolbox_dir);
+//tbx_build_loader(TOOLBOX_NAME, toolbox_dir);
+//tbx_build_cleaner(TOOLBOX_NAME, toolbox_dir);
+tbx_build_loader(toolbox_dir);
+tbx_build_cleaner(toolbox_dir);
 
 endfunction
 // =============================================================================

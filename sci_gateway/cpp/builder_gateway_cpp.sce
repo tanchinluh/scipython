@@ -68,9 +68,9 @@ function builder_gw_cpp()
         CFLAGS = CFLAGS + " " + ilib_include_flag(fullpath(SCI + "/modules/external_objects/includes"));
         CFLAGS = CFLAGS + " " + ilib_include_flag(fullfile(thirdPartyPath, "Lib/site-packages/numpy/core/include"));
 
-        LDFLAGS = fullpath(gwPath + "../../src/cpp/libpims_cpp.lib");
-        LDFLAGS = LDFLAGS + " " + fullfile(SCI, "bin/external_objects.lib");
-        LDFLAGS = LDFLAGS + " " + fullfile(thirdPartyPath, "libs", "python27.lib");
+        LDFLAGS = """" + fullpath(gwPath + "../../src/cpp/libpims_cpp.lib") + """" ;
+        LDFLAGS = LDFLAGS + " " + """" + fullfile(SCI, "bin/external_objects.lib")+ """" ;
+        LDFLAGS = LDFLAGS + " " + """" + fullfile(thirdPartyPath, "libs", "python27.lib")+ """" ;
     elseif os == "Linux" then
         gw_src_cpp = ls(gwPath + "/sci_*.cpp");
 
